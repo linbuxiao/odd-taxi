@@ -1,0 +1,23 @@
+name: deploy
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    environment: 
+      name: deploy    
+    steps:
+    - uses: actions/checkout@v2
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER_NAME }}
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          cd ${{ secrets.PATH }}
+          git pull
+          pnpm install && pnpm build && pm2 restart pnpm --name "odd-taxi" --port 1520 -- start 
