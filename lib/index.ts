@@ -2,7 +2,7 @@ import 'dotenv/config'
 import { Bot } from 'grammy'
 import { words } from './words.js'
 
-const bot = new Bot('2031107806:AAELoosOsZ3jtm2btB9hGsUGnkJkm78nK9U')
+const bot = new Bot(process.env.BOT_TOKEN!)
 
 const stickers = await bot.api.getStickerSet('oddTaxii')
 
