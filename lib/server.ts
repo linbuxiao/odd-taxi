@@ -7,3 +7,7 @@ const app = express()
 app.use(express.json())
 
 app.use(webhookCallback(bot, 'express'))
+
+app.listen(3010, () => {
+  console.log('Success!');
+})
