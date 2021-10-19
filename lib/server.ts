@@ -11,3 +11,5 @@ app.use(webhookCallback(bot, 'express'))
 app.listen(3010, () => {
   console.log('Success!');
 })
+
+bot.api.setWebhook(process.env.WEBHOOK!)
