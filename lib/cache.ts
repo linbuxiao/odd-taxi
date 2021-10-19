@@ -9,40 +9,46 @@
  *  - 写入后，遍历所有的 chat_id ，超时则 delete 。
  */
 
-import dayjs from 'dayjs'
+// import dayjs from 'dayjs'
 
-class ResponseCache {
-  map = new Map<number, { date: number, set: string[] }>()
+// class ResponseCache {
+//   map = new Map<number, { date: number, set: string[] }>()
 
-  read(id: number) {
-    return this.map.has(id) ? this.map.get(id)! : null
-  }
+//   read(id: number) {
+//     return this.map.has(id) ? this.map.get(id)! : null
+//   }
 
-  write(id: number, date: number, msg: string) {
-    if(this.map.has(id)) {
-      const cache = this.map.get(id)!
-      cache.date = date
-      cache.set.push(msg)
-      while(cache.set.length > 5) {
-        cache.set.shift()
-      }
-    } else {
-      const cache = {
-        date,
-        set: [msg]
-      }
-      this.map.set(id, cache)
-    }
+//   write(id: number, date: number, msg: string) {
+//     if(this.map.has(id)) {
+//       const cache = this.map.get(id)!
+//       cache.date = date
+//       cache.set.push(msg)
+//       while(cache.set.length > 5) {
+//         cache.set.shift()
+//       }
+//     } else {
+//       const cache = {
+//         date,
+//         set: [msg]
+//       }
+//       this.map.set(id, cache)
+//     }
 
-    const now = dayjs().unix()
-    const willDeleteKey: number[] = []
-    this.map.forEach((value, key) => {
-      if( now - value.date > 300 ) willDeleteKey.push(key)
-    })
-    for(const key in willDeleteKey) {
-      this.map.delete(+key)
-    }
-  }
-}
+//     const now = dayjs().unix()
+//     const willDeleteKey: number[] = []
+//     this.map.forEach((value, key) => {
+//       if( now - value.date > 300 ) willDeleteKey.push(key)
+//     })
+//     for(const key in willDeleteKey) {
+//       this.map.delete(+key)
+//     }
+//   }
+// }
 
-export const cache = new ResponseCache()
+// export const cache = new ResponseCache()
+
+import NodeCache from 'node-cache'
+
+export const cache = new NodeCache({
+  stdTTL: 300
+})

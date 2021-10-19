@@ -15,14 +15,11 @@ function rand (len: number) {
 
 bot.on("message", async (ctx) => {
   const { id } = ctx.chat
-  const pastChat = cache.read(id) 
-  let canPassWords = words
-  if(pastChat) {
-    canPassWords = words.filter(s => !pastChat.set.includes(s))
-  } 
-
+  const pastChat = cache.take<string[]>(id) ?? []
+  const canPassWords = words.filter(s => !pastChat.includes(s))
   const willSend = canPassWords[rand(canPassWords.length)]
-  cache.write(id, ctx.msg.date, willSend)
+  pastChat.push(willSend)
+  cache.set(id, pastChat)
   await bot.api.sendSticker(id, stickers[rand(stickers.length)])
   await bot.api.sendMessage(id, willSend)
 });
