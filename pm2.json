@@ -1,9 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "odd-taxi",
-      "cwd": "./",
-      "script": "./dist/lib/server.js"
-    }
-  ]
-}

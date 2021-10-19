@@ -20,4 +20,4 @@ jobs:
         script: |
           cd ${{ secrets.PATH }}
           git pull
-          pnpm install && pnpm build && pm2 reload pm2.json
+          pnpm install && pnpm build && pm2 reload /root/.pm2/pm2.json --only odd-taxi
