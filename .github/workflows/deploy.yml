@@ -20,4 +20,4 @@ jobs:
         script: |
           cd ${{ secrets.PATH }}
           git pull
-          pnpm install && pnpm build && pm2 restart pnpm --name "odd-taxi" -- start - --port 8082 
+          pnpm install && pnpm build && pm2 reload pm2.json
