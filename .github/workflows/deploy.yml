@@ -14,10 +14,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER_NAME }}
+        username: ${{ secrets.NAME }}
         key: ${{ secrets.KEY }}
         port: 22
         script: |
           cd ${{ secrets.PATH }}
           git pull
-          pnpm install && pnpm build && pm2 restart pnpm --name "odd-taxi" --port 1520 -- start 
+          pnpm install && pnpm build && pm2 restart pnpm --name "odd-taxi" -- start - --port 8082 
