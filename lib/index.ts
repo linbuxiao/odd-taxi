@@ -3,7 +3,7 @@ import { Bot } from 'grammy'
 import { words } from './words.js'
 import { cache } from './cache.js'
 
-const bot = new Bot(process.env.BOT_TOKEN!)
+export const bot = new Bot(process.env.BOT_TOKEN!)
 
 const stickers = (await bot.api.getStickerSet('oddTaxii')).stickers.map(item => item.file_id)
 
@@ -26,5 +26,3 @@ bot.on("message", async (ctx) => {
   await bot.api.sendSticker(id, stickers[rand(stickers.length)])
   await bot.api.sendMessage(id, willSend)
 });
-
-bot.start()

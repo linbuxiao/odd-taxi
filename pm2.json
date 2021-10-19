@@ -3,7 +3,7 @@
     {
       "name": "odd-taxi",
       "cwd": "./",
-      "script": "./dist/lib/index.js"
+      "script": "./dist/lib/server.js"
     }
   ]
 }
