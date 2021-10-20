@@ -1,7 +1,8 @@
 import 'dotenv/config'
-import { Bot } from 'grammy'
+import { Bot, webhookCallback } from 'grammy'
 import { words } from './words.js'
 import { cache } from './cache.js'
+import express from 'express'
 
 export const bot = new Bot(process.env.BOT_TOKEN!)
 
@@ -23,3 +24,11 @@ bot.on("message", async (ctx) => {
   await bot.api.sendSticker(id, stickers[rand(stickers.length)])
   await bot.api.sendMessage(id, willSend)
 });
+
+bot.api.setWebhook(process.env.WEBHOOK!)
+
+export const botApp = express()
+
+botApp.use(express.json())
+
+botApp.use(webhookCallback(bot, 'express'))
