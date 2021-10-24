@@ -12,7 +12,7 @@ export const bot = new Bot(process.env['BOT_TOKEN']!)
 
 bot.api.getStickerSet('oddTaxii').then(async stickersResponse => {
   const stickers = stickersResponse.stickers.map(item => item.file_id)
-  const words = await db.read() as string[]
+  const words = JSON.parse(await db.read()) as string[]
   bot.command("start", (ctx) => ctx.reply("请问要去哪里呢"));
   bot.on("message", async (ctx) => {
     const { id } = ctx.chat
