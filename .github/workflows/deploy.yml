@@ -20,4 +20,4 @@ jobs:
         script: |
           cd ${{ secrets.PATH }}
           git pull
-          yarn install && yarn build && pm2 reload /root/.pm2/pm2.json --only odd-taxi
+          yarn install && yarn build && pm2 restart /root/.pm2/pm2.json --only odd-taxi
