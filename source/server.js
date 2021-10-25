@@ -10,5 +10,5 @@ const server = new http.createServer((async (req, res)=> {
   })
 }))
 
-server.listen(3010)
+server.listen(3000)
 
