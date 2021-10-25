@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "telegram bot.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon source/server.js"
   },
