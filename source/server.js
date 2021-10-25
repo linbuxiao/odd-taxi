@@ -1,4 +1,4 @@
-import { bot } from './index.js'
+import { bot } from './bot.js'
 import http from 'http';
 import rawBody from 'raw-body';
 import { webhookCallback } from 'grammy';
