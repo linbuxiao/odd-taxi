@@ -8,5 +8,5 @@ export default http.createServer((async (req, res)=> {
     req.body = JSON.parse(body)
     webhookCallback(bot, 'http')(req, res)
   })
-})).listen(3000)
+}))
 
