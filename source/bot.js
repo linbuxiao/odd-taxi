@@ -1,4 +1,4 @@
-// import 'dotenv/config'
+import 'dotenv/config'
 import { Bot } from 'grammy'
 import { db } from './words.js'
 import { cache } from './cache.js'
