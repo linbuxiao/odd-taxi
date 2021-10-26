@@ -1,4 +1,4 @@
-import 'dotenv/config'
+// import 'dotenv/config'
 import { Bot } from 'grammy'
 import { db } from './words.js'
 import { cache } from './cache.js'
@@ -23,6 +23,5 @@ bot.api.getStickerSet('oddTaxii').then(async stickersResponse => {
     await bot.api.sendSticker(id, stickers[rand(stickers.length)])
     await bot.api.sendMessage(id, willSend)
   });
-
   await bot.api.setWebhook(process.env['WEBHOOK'])
 })

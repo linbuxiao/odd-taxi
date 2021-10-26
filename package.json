@@ -18,7 +18,6 @@
     "dayjs": "^1.10.7",
     "gist-helper": "^1.0.4",
     "grammy": "^1.3.3",
-    "micro": "^9.3.4",
     "node-cache": "^5.1.2",
     "raw-body": "^2.4.1"
   },
