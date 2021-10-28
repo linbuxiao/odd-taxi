@@ -11,11 +11,15 @@ const bot = new Bot(ENV['BOT_TOKEN']!)
 
 const words = JSON.parse(await fetchGist())
 
+const stickersResponse = await bot.api.getStickerSet('oddTaxii')
+
+const stickers = stickersResponse.stickers.map(item => item.file_id)
+
 function getRandomWord() {
   return words[Math.floor(Math.random() * words.length)]
 }
 
-bot.on('message', ctx => {
+bot.on('message', async ctx => {
   let word = getRandomWord()
   if(cache.has(ctx.chat.id)) {
     const prev = cache.get(ctx.chat.id) as string[]
@@ -27,7 +31,8 @@ bot.on('message', ctx => {
     word = getRandomWord()
     cache.set(ctx.chat.id, [word])
   }
-  ctx.reply(word)
+  await ctx.replyWithSticker(stickers[Math.floor(Math.random() * stickers.length)])
+  await ctx.reply(word)
 })
 
 bot.start()

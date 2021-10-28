@@ -5,7 +5,6 @@ const ENV = env()
 
 export async function fetchGist() {
   const gist = new Gist(ENV['GIST_TOKEN'])
-  const resInstance = await gist.get('1759dcfc56c42ed9cf214e46e4230de1')
-  const gistResponse = await resInstance.json()
+  const gistResponse = await (await gist.get('1759dcfc56c42ed9cf214e46e4230de1')).json()
   return gistResponse.files['data.json'].content
 }
