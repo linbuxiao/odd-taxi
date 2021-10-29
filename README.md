@@ -1,7 +1,5 @@
 ## 小户川交通
-[![telegram](https://img.shields.io/badge/telegram-odd__taxi__bot-blueviolet)](https://t.me/odd_taxi_bot)
-
-[![sticker](https://img.shields.io/badge/sticker-oddTaxii-ff69b4)](https://t.me/addstickers/oddTaxii)
+[![telegram](https://img.shields.io/badge/telegram-odd__taxi__bot-blueviolet)](https://t.me/odd_taxi_bot) [![sticker](https://img.shields.io/badge/sticker-oddTaxii-ff69b4)](https://t.me/addstickers/oddTaxii)
 
 因为喜欢 [**奇巧计程车**](https://movie.douban.com/subject/35332568/) 这部动漫而出现的 bot 。
 
