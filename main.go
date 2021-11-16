@@ -15,8 +15,6 @@ import (
 
 var words []string
 
-var bot *tgbotapi.BotAPI
-
 var c *bigcahce.BigCache
 
 func main() {
@@ -109,7 +107,7 @@ func initToken() string {
 	err := godotenv.Load()
 
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Print("Error loading .env file")
 	}
 
 	return os.Getenv("BOT_TOKEN")
