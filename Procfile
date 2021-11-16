@@ -1,1 +1,1 @@
-web: odd-taxi
+bot: odd-taxi
