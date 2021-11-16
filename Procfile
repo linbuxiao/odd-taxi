@@ -1,1 +1,1 @@
-bot: ./odd-taxi
+bot: bin/odd-taxi
